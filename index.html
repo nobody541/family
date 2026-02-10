@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Family's Memories</title>
+  <meta name="description" content="Our little family memories corner">
+  <link href="assets/img/icon1.png" rel="icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --warm-peach: #fce8d5;
+      --warm-orange: #f4845f;
+      --warm-sunset: #e8734a;
+      --warm-gold: #f5a623;
+      --warm-amber: #d4881f;
+      --warm-rose: #e8837c;
+      --warm-coral: #ff8a73;
+      --warm-text: #3d2c1e;
+      --warm-text-soft: #6b5544;
+      --warm-text-muted: #9c8878;
+      --heading-font: "Cardo", serif;
+      --body-font: "Nunito", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: var(--body-font);
+      color: var(--warm-text);
+      background: #1a1412 !important;
+      margin: 0;
+    }
+    .main, section, #gallery { background: transparent !important; }
+
+    /* ---- Header ---- */
+    .header {
+      background: rgba(26,20,18,0.85) !important;
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,0.06) !important;
+      padding: 12px 0;
+    }
+    .header .sitename {
+      font-family: var(--heading-font);
+      color: #fce8d5 !important;
+      font-size: 22px !important;
+      font-weight: 700;
+    }
+    .navmenu ul a {
+      color: rgba(252,232,213,0.7) !important;
+      font-family: var(--body-font) !important;
+      font-weight: 600 !important;
+      font-size: 13px !important;
+      letter-spacing: 0.5px;
+    }
+    .navmenu ul a:hover { color: var(--warm-gold) !important; }
+
+    /* ---- Hero ---- */
+    .hero-section {
+      background: linear-gradient(160deg, #2d1810 0%, #4a2418 30%, #6b3420 55%, #8b4a28 75%, #a05a30 100%) !important;
+      padding: 100px 0 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: -100px; right: -80px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(245,166,35,0.2) 0%, transparent 60%);
+      border-radius: 50%;
+    }
+    .hero-section::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -60px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(244,132,95,0.15) 0%, transparent 60%);
+      border-radius: 50%;
+    }
+    .hero-glow {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px; height: 300px;
+      background: radial-gradient(ellipse, rgba(245,166,35,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-emoji { font-size: 56px; margin-bottom: 20px; display: block; }
+    .hero-section h1 {
+      font-family: var(--heading-font);
+      font-size: 52px;
+      font-weight: 700;
+      color: #fce8d5;
+      margin-bottom: 16px;
+      line-height: 1.2;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-section h1 span {
+      background: linear-gradient(135deg, #ffb347, #ff6b6b, #f5a623);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-section .hero-sub {
+      font-size: 18px;
+      color: rgba(252,232,213,0.65);
+      max-width: 540px;
+      margin: 0 auto 30px;
+      line-height: 1.7;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-family-strip {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 10px;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-mini-avatar {
+      width: 60px; height: 60px;
+      border-radius: 50%;
+      border: 3px solid rgba(252,232,213,0.3);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3), 0 0 30px rgba(245,166,35,0.15);
+      overflow: hidden;
+      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+    }
+    .hero-mini-avatar:hover {
+      transform: scale(1.2) rotate(-5deg);
+      border-color: var(--warm-gold);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3), 0 0 40px rgba(245,166,35,0.3);
+    }
+    .hero-mini-avatar svg, .hero-mini-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .member-avatar-inner img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* ---- Section Common ---- */
+    .fm-section { padding: 60px 0; }
+    .fm-section-heading { text-align: center; margin-bottom: 44px; }
+    .fm-section-heading h2 {
+      font-family: var(--heading-font);
+      font-size: 34px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .fm-section-heading p {
+      font-size: 15px;
+      margin: 0;
+    }
+    .fm-section-heading .heading-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      margin: 14px auto 0;
+    }
+
+    /* ---- Family Section ---- */
+    #family-members {
+      background: linear-gradient(180deg, #fdf6ee 0%, #fef0e0 100%) !important;
+      position: relative;
+    }
+    #family-members::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 80px;
+      background: linear-gradient(to bottom, rgba(160,90,48,0.06), transparent);
+      pointer-events: none;
+    }
+    #family-members .fm-section-heading h2 { color: var(--warm-text); }
+    #family-members .fm-section-heading p { color: var(--warm-text-muted); }
+    #family-members .heading-dot { background: var(--warm-orange); }
+
+    .member-card {
+      background: #fff;
+      border-radius: 24px;
+      padding: 32px 22px 26px;
+      text-align: center;
+      box-shadow: 0 4px 24px rgba(139,99,68,0.08);
+      border: 1px solid rgba(244,132,95,0.06);
+      transition: transform 0.3s, box-shadow 0.3s;
+      height: 100%;
+    }
+    .member-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 48px rgba(244,132,95,0.15);
+    }
+    .member-avatar-wrap {
+      width: 110px; height: 110px;
+      border-radius: 50%;
+      margin: 0 auto 16px;
+      padding: 4px;
+      background: linear-gradient(135deg, var(--warm-peach), var(--warm-coral), var(--warm-gold));
+    }
+    .member-avatar-inner {
+      width: 100%; height: 100%;
+      border-radius: 50%;
+      background: #fff;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .member-avatar-inner svg { width: 88px; height: 88px; }
+    .member-card .member-name {
+      font-family: var(--heading-font);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--warm-text);
+      margin-bottom: 2px;
+    }
+    .member-card .member-role {
+      font-size: 13px;
+      color: var(--warm-orange);
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      margin-bottom: 18px;
+    }
+    .member-card .member-details {
+      list-style: none; padding: 0; margin: 0;
+      text-align: left;
+    }
+    .member-card .member-details li {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 9px 0;
+      border-top: 1px dashed rgba(244,132,95,0.15);
+      font-size: 14px;
+    }
+    .member-card .member-details li span:first-child {
+      color: var(--warm-text-muted);
+      font-weight: 600;
+    }
+    .member-card .member-details li span:last-child {
+      font-weight: 700;
+      color: var(--warm-text);
+    }
+    .country-bar {
+      background: var(--warm-peach);
+      border-radius: 8px;
+      height: 8px;
+      overflow: hidden;
+      margin-top: 8px;
+    }
+    .country-bar .bar-fill {
+      height: 100%;
+      border-radius: 8px;
+      background: linear-gradient(90deg, var(--warm-orange), var(--warm-gold));
+    }
+
+    /* ---- Timeline Section ---- */
+    #travel-timeline {
+      background: linear-gradient(160deg, #2a1a10 0%, #3d2518 50%, #4a2c1a 100%) !important;
+      position: relative;
+    }
+    #travel-timeline .fm-section-heading h2 { color: #fce8d5; }
+    #travel-timeline .fm-section-heading p { color: rgba(252,232,213,0.5); }
+    #travel-timeline .heading-dot { background: var(--warm-gold); }
+
+    .travel-timeline { position: relative; padding: 10px 0; }
+    .travel-timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%; transform: translateX(-50%);
+      width: 3px; height: 100%; top: 0;
+      background: linear-gradient(to bottom, rgba(252,232,213,0.1), rgba(245,166,35,0.3), rgba(252,232,213,0.1));
+      border-radius: 3px;
+    }
+    .timeline-year { position: relative; margin-bottom: 44px; }
+    .timeline-year .year-badge {
+      position: relative; z-index: 2;
+      background: linear-gradient(135deg, var(--warm-orange), var(--warm-sunset));
+      color: #fff;
+      font-family: var(--heading-font);
+      font-size: 18px; font-weight: 700;
+      width: 64px; height: 64px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 14px;
+      box-shadow: 0 6px 24px rgba(244,132,95,0.35), 0 0 40px rgba(245,166,35,0.1);
+    }
+    .timeline-year .trip-tags {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;
+    }
+    .trip-tag {
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(252,232,213,0.12);
+      border-radius: 24px;
+      padding: 8px 18px;
+      font-size: 14px; font-weight: 600;
+      color: rgba(252,232,213,0.85);
+      transition: all 0.3s;
+    }
+    .trip-tag:hover {
+      background: rgba(255,255,255,0.15);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      color: #fce8d5;
+    }
+    .trip-tag i { margin-right: 5px; color: var(--warm-gold); }
+
+    /* ---- Gallery Section ---- */
+    #gallery {
+      background: linear-gradient(180deg, #fdf6ee 0%, #f8ece0 100%) !important;
+    }
+    .gallery-heading { text-align: center; margin-bottom: 40px; }
+    .gallery-heading h2 {
+      font-family: var(--heading-font);
+      font-size: 34px; font-weight: 700;
+      color: var(--warm-text);
+      margin-bottom: 6px;
+    }
+    .gallery-heading p { color: var(--warm-text-muted); font-size: 15px; margin: 0; }
+    .gallery .gallery-item { border-radius: 16px; }
+    .gallery .gallery-links { background: rgba(42,26,16,0.6); }
+
+    /* ---- Footer ---- */
+    .footer {
+      background: #1a1412 !important;
+      border-top: 1px solid rgba(252,232,213,0.06) !important;
+    }
+    .footer p { color: rgba(252,232,213,0.45) !important; font-family: var(--body-font); }
+
+    /* ---- Preloader ---- */
+    #preloader:before, #preloader:after { background-color: #1a1412 !important; }
+
+    /* ---- Responsive ---- */
+    @media (max-width: 768px) {
+      .hero-section h1 { font-size: 36px; }
+      .hero-section { padding: 70px 0 40px; }
+      .fm-section-heading h2 { font-size: 28px; }
+      .travel-timeline::before { display: none; }
+      .timeline-year .year-badge { width: 56px; height: 56px; font-size: 16px; }
+      .member-avatar-wrap { width: 90px; height: 90px; }
+      .member-avatar-inner svg { width: 72px; height: 72px; }
+    }
+  </style>
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
+      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+        <h1 class="sitename">Our Family</h1>
+      </a>
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#family-members">Family</a></li>
+          <li><a href="#travel-timeline">Trips</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Hero -->
+    <section id="hero" class="hero-section section">
+      <div class="hero-glow"></div>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8" data-aos="fade-up" data-aos-delay="100">
+            <span class="hero-emoji">&#127968;</span>
+            <h1>Where Our <span>Memories</span> Live</h1>
+            <p class="hero-sub">Photos, videos, milestones, and the little moments that make our family who we are — all gathered in one warm place.</p>
+            <div class="hero-family-strip">
+              <!-- Dad mini -->
+              <div class="hero-mini-avatar">
+                <img src="assets/img/dad.jpg" alt="Dad">
+              </div>
+              <!-- Mom mini -->
+              <div class="hero-mini-avatar">
+                <img src="assets/img/mom.png" alt="Mom">
+              </div>
+              <!-- Viktoria mini -->
+              <div class="hero-mini-avatar">
+                <img src="assets/img/Viktoria (2).JPG" alt="Viktoria">
+              </div>
+              <!-- Arthur mini -->
+              <div class="hero-mini-avatar">
+                <img src="assets/img/Arthur.jpeg" alt="Arthur">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Family Members -->
+    <section id="family-members" class="fm-section section">
+      <div class="container">
+        <div class="fm-section-heading" data-aos="fade-up">
+          <h2>The Family</h2>
+          <p>Poland, Vietnam, Switzerland, Canada — one family, four stories</p>
+          <div class="heading-dot"></div>
+        </div>
+        <div class="row g-4 justify-content-center">
+
+          <!-- Dad -->
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="member-card">
+              <div class="member-avatar-wrap">
+                <div class="member-avatar-inner">
+                  <img src="assets/img/dad.jpg" alt="Dad">
+                </div>
+              </div>
+              <div class="member-name">Dad</div>
+              <div class="member-role">The Explorer</div>
+              <ul class="member-details">
+                <li><span>Born</span><span>1985</span></li>
+                <li><span>Homeland</span><span>Poland &#127477;&#127473;</span></li>
+                <li><span>Countries lived</span><span>5</span></li>
+                <li><span>Countries visited</span><span>19</span></li>
+              </ul>
+              <div class="country-bar"><div class="bar-fill" style="width:100%"></div></div>
+            </div>
+          </div>
+
+          <!-- Mom -->
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="member-card">
+              <div class="member-avatar-wrap">
+                <div class="member-avatar-inner">
+                  <img src="assets/img/mom.png" alt="Mom">
+                </div>
+              </div>
+              <div class="member-name">Mom</div>
+              <div class="member-role">The Heart</div>
+              <ul class="member-details">
+                <li><span>Born</span><span>1992</span></li>
+                <li><span>Homeland</span><span>Vietnam &#127483;&#127475;</span></li>
+                <li><span>Countries lived</span><span>5</span></li>
+                <li><span>Countries visited</span><span>14</span></li>
+              </ul>
+              <div class="country-bar"><div class="bar-fill" style="width:74%"></div></div>
+            </div>
+          </div>
+
+          <!-- Viktoria -->
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="member-card">
+              <div class="member-avatar-wrap">
+                <div class="member-avatar-inner">
+                  <img src="assets/img/Viktoria (2).JPG" alt="Viktoria">
+                </div>
+              </div>
+              <div class="member-name">Viktoria</div>
+              <div class="member-role">The Spark</div>
+              <ul class="member-details">
+                <li><span>Born</span><span>2017</span></li>
+                <li><span>Homeland</span><span>Switzerland &#127464;&#127469;</span></li>
+                <li><span>Countries lived</span><span>4</span></li>
+                <li><span>Countries visited</span><span>11</span></li>
+              </ul>
+              <div class="country-bar"><div class="bar-fill" style="width:58%"></div></div>
+            </div>
+          </div>
+
+          <!-- Arthur -->
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="member-card">
+              <div class="member-avatar-wrap">
+                <div class="member-avatar-inner">
+                  <img src="assets/img/Arthur.jpeg" alt="Arthur">
+                </div>
+              </div>
+              <div class="member-name">Arthur</div>
+              <div class="member-role">The Joy</div>
+              <ul class="member-details">
+                <li><span>Born</span><span>2019</span></li>
+                <li><span>Homeland</span><span>Canada &#127464;&#127462;</span></li>
+                <li><span>Countries lived</span><span>2</span></li>
+                <li><span>Countries visited</span><span>5</span></li>
+              </ul>
+              <div class="country-bar"><div class="bar-fill" style="width:26%"></div></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Travel Timeline -->
+    <section id="travel-timeline" class="fm-section section" style="padding-top:60px">
+      <div class="container">
+        <div class="fm-section-heading" data-aos="fade-up">
+          <h2>Our Adventures</h2>
+          <p>Every trip is a chapter in our family story</p>
+          <div class="heading-dot"></div>
+        </div>
+        <div class="travel-timeline">
+          <div class="timeline-year" data-aos="fade-up" data-aos-delay="100">
+            <div class="year-badge">2021</div>
+            <div class="trip-tags">
+              <span class="trip-tag"><i class="bi bi-water"></i>Niagara Falls</span>
+              <span class="trip-tag"><i class="bi bi-tree-fill"></i>1000 Islands</span>
+              <span class="trip-tag"><i class="bi bi-geo-alt-fill"></i>Magog</span>
+            </div>
+          </div>
+          <div class="timeline-year" data-aos="fade-up" data-aos-delay="200">
+            <div class="year-badge">2022</div>
+            <div class="trip-tags">
+              <span class="trip-tag"><i class="bi bi-flag-fill"></i>Poland</span>
+              <span class="trip-tag"><i class="bi bi-geo-alt-fill"></i>Magog</span>
+            </div>
+          </div>
+          <div class="timeline-year" data-aos="fade-up" data-aos-delay="300">
+            <div class="year-badge">2023</div>
+            <div class="trip-tags">
+              <span class="trip-tag"><i class="bi bi-flag-fill"></i>Vietnam</span>
+              <span class="trip-tag"><i class="bi bi-sun-fill"></i>Mexico</span>
+              <span class="trip-tag"><i class="bi bi-geo-alt-fill"></i>Magog</span>
+            </div>
+          </div>
+          <div class="timeline-year" data-aos="fade-up" data-aos-delay="400">
+            <div class="year-badge">2024</div>
+            <div class="trip-tags">
+              <span class="trip-tag"><i class="bi bi-flag-fill"></i>Vietnam</span>
+              <span class="trip-tag"><i class="bi bi-geo-alt-fill"></i>Magog</span>
+              <span class="trip-tag"><i class="bi bi-flag-fill"></i>US</span>
+              <span class="trip-tag"><i class="bi bi-umbrella-fill"></i>Cape Cod</span>
+              <span class="trip-tag"><i class="bi bi-building"></i>RockPort</span>
+              <span class="trip-tag"><i class="bi bi-flag-fill"></i>Poland</span>
+            </div>
+          </div>
+          <div class="timeline-year" data-aos="fade-up" data-aos-delay="500">
+            <div class="year-badge">2025</div>
+            <div class="trip-tags">
+              <span class="trip-tag"><i class="bi bi-umbrella-fill"></i>Cape Cod</span>
+              <span class="trip-tag"><i class="bi bi-building"></i>RockPort</span>
+              <span class="trip-tag"><i class="bi bi-flag-fill"></i>Canada</span>
+              <span class="trip-tag"><i class="bi bi-snow2"></i>Mount Washington</span>
+              <span class="trip-tag"><i class="bi bi-water"></i>Roth Island</span>
+              <span class="trip-tag"><i class="bi bi-sun-fill"></i>Dominican Republic</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="gallery section" style="padding-top:60px">
+      <div class="container">
+        <div class="gallery-heading" data-aos="fade-up">
+          <h2>Family Gallery</h2>
+          <p>Videos and photos from our journey together</p>
+          <div style="width:8px;height:8px;border-radius:50%;background:var(--warm-orange);margin:14px auto 0"></div>
+        </div>
+      </div>
+      <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
+        <div class="row gy-4 justify-content-center">
+          <div class="col-xl-3 col-lg-4 col-md-6">
+            <div class="gallery-item h-100">
+              <img src="assets/img/gallery/switzerland2017.JPG" class="img-fluid" alt="">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="https://www.youtube.com/watch?v=9cEj4ctoSQA?vq=hd2160&rel=0" class="glightbox video glightbox-video" data-gallery="video-gallery" data-type="video" title="Watch Video">
+                  <p>Family 2017 - 2018<br>Hình gia đình 2017-2018</p>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-4 col-md-6">
+            <div class="gallery-item h-100">
+              <img src="assets/img/gallery/20201.jpg" class="img-fluid" alt="">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="https://www.youtube.com/watch?v=sRpKPtnijWE?vq=hd2160&rel=0" class="glightbox video glightbox-video" data-gallery="video-gallery" data-type="video" title="Watch Video">
+                  <p>Family 2019-2020<br>Hình gia đình 2019-2020</p>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-4 col-md-6">
+            <div class="gallery-item h-100">
+              <img src="assets/img/gallery/20212.jpg" class="img-fluid" alt="">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="https://www.youtube.com/watch?v=je56H2ygFOs?vq=hd2160&rel=0" class="glightbox video glightbox-video" data-gallery="video-gallery" data-type="video" title="Watch Video">
+                  <p>Family 2021<br>Hình gia đình 2021</p>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-4 col-md-6">
+            <div class="gallery-item h-100">
+              <img src="assets/img/gallery/nig2021.jpg" class="img-fluid" alt="">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="https://www.youtube.com/watch?v=09rYj92pGhU?vq=hd2160&rel=0" class="glightbox video glightbox-video" data-gallery="video-gallery" data-type="video" title="Watch Video">
+                  <p>Niagara Fall 2021<br>Đi chơi thác Niagara</p>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-4 col-md-6">
+            <div class="gallery-item h-100">
+              <img src="assets/img/gallery/g2021.jpg" class="img-fluid" alt="">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="https://www.youtube.com/watch?v=iphKIdNm3Tg?vq=hd2160&rel=0" class="glightbox video glightbox-video" data-gallery="video-gallery" data-type="video" title="Watch Video">
+                  <p>Family 2022<br>Hình gia đình 2022</p>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-4 col-md-6">
+            <div class="gallery-item h-100">
+              <img src="assets/img/gallery/g2022.jpg" class="img-fluid" alt="">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="https://www.youtube.com/watch?v=v1y520hV2oI?vq=hd2160&rel=0" class="glightbox video glightbox-video" data-gallery="video-gallery" data-type="video" title="Watch Video">
+                  <p>Poland 2022<br>Đi về Ba Lan 2022</p>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-4 col-md-6">
+            <div class="gallery-item h-100">
+              <img src="assets/img/gallery/vietnam2023.jpg" class="img-fluid" alt="">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="https://www.youtube.com/watch?v=EzFjLejca3o?vq=hd2160&rel=0" class="glightbox video glightbox-video" data-gallery="video-gallery" data-type="video" title="Watch Video">
+                  <p>Vietnam 2023<br>Hình gia đình 2023</p>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-4 col-md-6">
+            <div class="gallery-item h-100">
+              <img src="assets/img/gallery/g2023.jpg" class="img-fluid" alt="">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="https://www.youtube.com/watch?v=MfzIjFTDcPw?vq=hd2160&rel=0" class="glightbox video glightbox-video" data-gallery="video-gallery" data-type="video" title="Watch Video">
+                  <p>Mexico 2023<br>Đi chơi Mexico 2023</p>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-4 col-md-6">
+            <div class="gallery-item h-100">
+              <img src="assets/img/gallery/family20231.jpg" class="img-fluid" alt="">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="https://youtu.be/HKycQ-gjbE4" class="glightbox video glightbox-video" data-gallery="video-gallery" data-type="video" title="Watch Video">
+                  <p>Family 2023<br>Hình gia đình 2023</p>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-4 col-md-6">
+            <div class="gallery-item h-100">
+              <img src="assets/img/gallery/capecod.jpg" class="img-fluid" alt="">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="https://www.youtube.com/watch?v=Dn64SwxgcuI?vq=hd2160&rel=0" class="glightbox video glightbox-video" data-gallery="video-gallery" data-type="video" title="Watch Video">
+                  <p>Cape Cod 2024<br>Cả nhà đi chơi Cape Cod 2024</p>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-4 col-md-6">
+            <div class="gallery-item h-100">
+              <img src="assets/img/gallery/photoshoot.JPG" class="img-fluid" alt="">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="https://www.youtube.com/watch?v=YXBh_acJJ70?vq=hd2160&rel=0" class="glightbox video glightbox-video" data-gallery="video-gallery" data-type="video" title="Watch Video">
+                  <p>Family photoshoot<br>Hình chụp studio</p>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-4 col-md-6">
+            <div class="gallery-item h-100">
+              <img src="assets/img/gallery/poland2024.jpg" class="img-fluid" alt="">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="https://www.youtube.com/watch?v=NLJ8WGTK4yA?vq=hd2160&rel=0" class="glightbox video glightbox-video" data-gallery="video-gallery" data-type="video" title="Watch Video">
+                  <p>Poland 2024<br>Hình đi Ba Lan 2024</p>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="footer" class="footer">
+    <div class="container">
+      <div class="copyright text-center">
+        <p><i class="bi bi-heart-fill" style="color:var(--warm-rose)"></i> Made with love <i class="bi bi-heart-fill" style="color:var(--warm-rose)"></i></p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center" style="background-color:var(--warm-orange)"><i class="bi bi-arrow-up-short"></i></a>
+
+  <div id="preloader"><div class="line"></div></div>
+
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    const lightbox = GLightbox({
+      selector: '.glightbox-video, .glightbox',
+      touchNavigation: true,
+      autoplayVideos: true
+    });
+  </script>
+</body>
+
+</html>
