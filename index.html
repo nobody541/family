@@ -71,27 +71,43 @@
 
     /* ---- Hero ---- */
     .hero-section {
-      background: linear-gradient(160deg, #2d1810 0%, #4a2418 30%, #6b3420 55%, #8b4a28 75%, #a05a30 100%) !important;
-      padding: 100px 0 60px;
+      padding: 140px 0 80px;
       text-align: center;
       position: relative;
       overflow: hidden;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: #1a1412;
+    }
+    .hero-video {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      z-index: 0;
     }
     .hero-section::before {
       content: '';
       position: absolute;
-      top: -100px; right: -80px;
-      width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(245,166,35,0.2) 0%, transparent 60%);
-      border-radius: 50%;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(26,20,18,0.5) 0%,
+        rgba(26,20,18,0.25) 40%,
+        rgba(26,20,18,0.35) 70%,
+        rgba(45,36,28,0.9) 95%,
+        rgba(253,246,238,1) 100%
+      );
+      z-index: 1;
     }
     .hero-section::after {
       content: '';
       position: absolute;
-      bottom: -80px; left: -60px;
-      width: 400px; height: 400px;
-      background: radial-gradient(circle, rgba(244,132,95,0.15) 0%, transparent 60%);
-      border-radius: 50%;
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(245,166,35,0.08) 0%, transparent 70%);
+      z-index: 1;
+      pointer-events: none;
     }
     .hero-glow {
       position: absolute;
@@ -100,6 +116,11 @@
       width: 600px; height: 300px;
       background: radial-gradient(ellipse, rgba(245,166,35,0.08) 0%, transparent 70%);
       pointer-events: none;
+      z-index: 1;
+    }
+    .hero-section > .container {
+      position: relative;
+      z-index: 2;
     }
     .hero-emoji { font-size: 56px; margin-bottom: 20px; display: block; }
     .hero-section h1 {
@@ -172,7 +193,7 @@
 
     /* ---- Family Section ---- */
     #family-members {
-      background: linear-gradient(180deg, #fdf6ee 0%, #fef0e0 100%) !important;
+      background: linear-gradient(180deg, #fdf6ee 0%, #fef0e0 50%, #f5e4d2 100%) !important;
       position: relative;
     }
     #family-members::before {
@@ -262,11 +283,36 @@
 
     /* ---- Timeline Section ---- */
     #travel-timeline {
-      background: linear-gradient(160deg, #2a1a10 0%, #3d2518 50%, #4a2c1a 100%) !important;
       position: relative;
+      overflow: hidden;
+      background: #1a1412;
+    }
+    #travel-timeline .adventure-video {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+    #travel-timeline::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(26,20,18,0.7) 0%,
+        rgba(20,18,16,0.35) 35%,
+        rgba(20,18,16,0.4) 65%,
+        rgba(26,20,18,0.75) 100%
+      );
+      z-index: 1;
+    }
+    #travel-timeline > .container {
+      position: relative;
+      z-index: 2;
     }
     #travel-timeline .fm-section-heading h2 { color: #fce8d5; }
-    #travel-timeline .fm-section-heading p { color: rgba(252,232,213,0.5); }
+    #travel-timeline .fm-section-heading p { color: rgba(252,232,213,0.55); }
     #travel-timeline .heading-dot { background: var(--warm-gold); }
 
     .travel-timeline { position: relative; padding: 10px 0; }
@@ -275,13 +321,13 @@
       position: absolute;
       left: 50%; transform: translateX(-50%);
       width: 3px; height: 100%; top: 0;
-      background: linear-gradient(to bottom, rgba(252,232,213,0.1), rgba(245,166,35,0.3), rgba(252,232,213,0.1));
+      background: linear-gradient(to bottom, rgba(252,232,213,0.08), rgba(245,166,35,0.3), rgba(252,232,213,0.08));
       border-radius: 3px;
     }
     .timeline-year { position: relative; margin-bottom: 44px; }
     .timeline-year .year-badge {
       position: relative; z-index: 2;
-      background: linear-gradient(135deg, var(--warm-orange), var(--warm-sunset));
+      background: linear-gradient(135deg, var(--warm-orange), var(--warm-gold));
       color: #fff;
       font-family: var(--heading-font);
       font-size: 18px; font-weight: 700;
@@ -289,32 +335,33 @@
       border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
       margin: 0 auto 14px;
-      box-shadow: 0 6px 24px rgba(244,132,95,0.35), 0 0 40px rgba(245,166,35,0.1);
+      box-shadow: 0 6px 24px rgba(244,132,95,0.3), 0 0 40px rgba(245,166,35,0.12);
     }
     .timeline-year .trip-tags {
       display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;
     }
     .trip-tag {
       background: rgba(255,255,255,0.08);
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(12px);
       border: 1px solid rgba(252,232,213,0.12);
       border-radius: 24px;
       padding: 8px 18px;
       font-size: 14px; font-weight: 600;
-      color: rgba(252,232,213,0.85);
+      color: rgba(252,232,213,0.88);
       transition: all 0.3s;
     }
     .trip-tag:hover {
       background: rgba(255,255,255,0.15);
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
       color: #fce8d5;
     }
     .trip-tag i { margin-right: 5px; color: var(--warm-gold); }
 
     /* ---- Gallery Section ---- */
     #gallery {
-      background: linear-gradient(180deg, #fdf6ee 0%, #f8ece0 100%) !important;
+      background: linear-gradient(180deg, #f0dcc8 0%, #fdf6ee 15%, #f8ece0 100%) !important;
+      position: relative;
     }
     .gallery-heading { text-align: center; margin-bottom: 40px; }
     .gallery-heading h2 {
@@ -340,7 +387,7 @@
     /* ---- Responsive ---- */
     @media (max-width: 768px) {
       .hero-section h1 { font-size: 36px; }
-      .hero-section { padding: 70px 0 40px; }
+      .hero-section { padding: 100px 0 60px; min-height: 80vh; }
       .fm-section-heading h2 { font-size: 28px; }
       .travel-timeline::before { display: none; }
       .timeline-year .year-badge { width: 56px; height: 56px; font-size: 16px; }
@@ -373,6 +420,9 @@
 
     <!-- Hero -->
     <section id="hero" class="hero-section section">
+      <video class="hero-video" autoplay muted loop playsinline>
+        <source src="assets/video/Sound of the Sea.mp4" type="video/mp4">
+      </video>
       <div class="hero-glow"></div>
       <div class="container">
         <div class="row justify-content-center">
@@ -425,7 +475,7 @@
               <div class="member-role">The Explorer</div>
               <ul class="member-details">
                 <li><span>Born</span><span>1985</span></li>
-                <li><span>Homeland</span><span>Poland &#127477;&#127473;</span></li>
+                <li><span>Country Born</span><span>Poland &#127477;&#127473;</span></li>
                 <li><span>Countries lived</span><span>5</span></li>
                 <li><span>Countries visited</span><span>19</span></li>
               </ul>
@@ -445,7 +495,7 @@
               <div class="member-role">The Heart</div>
               <ul class="member-details">
                 <li><span>Born</span><span>1992</span></li>
-                <li><span>Homeland</span><span>Vietnam &#127483;&#127475;</span></li>
+                <li><span>Country Born</span><span>Vietnam &#127483;&#127475;</span></li>
                 <li><span>Countries lived</span><span>5</span></li>
                 <li><span>Countries visited</span><span>14</span></li>
               </ul>
@@ -465,7 +515,7 @@
               <div class="member-role">The Spark</div>
               <ul class="member-details">
                 <li><span>Born</span><span>2017</span></li>
-                <li><span>Homeland</span><span>Switzerland &#127464;&#127469;</span></li>
+                <li><span>Country Born</span><span>Switzerland &#127464;&#127469;</span></li>
                 <li><span>Countries lived</span><span>4</span></li>
                 <li><span>Countries visited</span><span>11</span></li>
               </ul>
@@ -485,7 +535,7 @@
               <div class="member-role">The Joy</div>
               <ul class="member-details">
                 <li><span>Born</span><span>2019</span></li>
-                <li><span>Homeland</span><span>Canada &#127464;&#127462;</span></li>
+                <li><span>Country Born</span><span>Canada &#127464;&#127462;</span></li>
                 <li><span>Countries lived</span><span>2</span></li>
                 <li><span>Countries visited</span><span>5</span></li>
               </ul>
@@ -499,6 +549,9 @@
 
     <!-- Travel Timeline -->
     <section id="travel-timeline" class="fm-section section" style="padding-top:60px">
+      <video class="adventure-video" autoplay muted loop playsinline>
+        <source src="assets/video/on the road.MOV" type="video/mp4">
+      </video>
       <div class="container">
         <div class="fm-section-heading" data-aos="fade-up">
           <h2>Our Adventures</h2>
